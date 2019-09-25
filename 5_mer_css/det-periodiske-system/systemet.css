@@ -1,0 +1,20 @@
+body{
+  background-color: orange;
+}
+.systemet{
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  grid-gap: 5px;
+}
+.grunnstoff{
+  background-color: white;
+}
+
+.span-6{
+  grid-column: span 6;
+}
+
+.usynlig{
+  opacity: 0;
+}
+

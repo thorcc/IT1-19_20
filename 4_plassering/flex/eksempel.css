@@ -1,0 +1,19 @@
+/*
+--- Display: inline-block; enkel, men gammeldags ---
+.ved-siden{
+  background-color: red;
+  margin: 15px;
+  display: inline-block;
+  width: 200px;
+}
+*/
+
+.flexcontainer{
+  display: flex;
+  background-color: blue;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.ved-siden{
+  background-color: red;
+}
