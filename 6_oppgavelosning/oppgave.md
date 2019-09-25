@@ -22,23 +22,23 @@ Lav/middels/høy måloppnåelse
 
 Vurderingskriterier:
  - Høy måloppnåelse:
-  * Nettstedet er ryddig og oversiktlig.
-  * Nettstedet inneholder flere sider som er lenket sammen.
-  * Nettstedet bruker eget stilark (css) for et enhetlig design
-  * Nettstedet inneholder minst en side med grid.
-  * Nettstedet inneholder tekst og bilder.
-  * Filstrukturen er ryddig.
+    * Nettstedet er ryddig og oversiktlig.
+    * Nettstedet inneholder flere sider som er lenket sammen.
+    * Nettstedet bruker eget stilark (css) for et enhetlig design
+    * Nettstedet inneholder minst en side med grid.
+    * Nettstedet inneholder tekst og bilder.
+    * Filstrukturen er ryddig.
 
  - Middels måloppnåelse:
-  * Nettstedet inneholder flere sider som er lenket sammen.
-  * Nettstedet bruker stilark (css)
-  * Nettstedet inneholder minst en side med grid.
-  * Nettstedet inneholder tekst og bilder.
+    * Nettstedet inneholder flere sider som er lenket sammen.
+    * Nettstedet bruker stilark (css)
+    * Nettstedet inneholder minst en side med grid.
+    * Nettstedet inneholder tekst og bilder.
 
  - Lav måloppnåelse:
-  * Nettstedet inneholder flere sider som er lenket sammen.
-  * Nettstedet har noe CSS.
-  * Nettstedet inneholder tekst.
+    * Nettstedet inneholder flere sider som er lenket sammen.
+    * Nettstedet har noe CSS.
+    * Nettstedet inneholder tekst.
 
 
 
