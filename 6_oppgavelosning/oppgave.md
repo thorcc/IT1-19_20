@@ -5,7 +5,7 @@ Se film 1-8 under "Lær CSS" på [Scrimba](https://scrimba.com/g/gkursiwebprogra
 Bonus: Se film 9-17 for å få tips til hva mer som kan gjøres med CSS.
 
 ## Oppgave
-Du skal lage ditt eget nettsted. Tema for nettstedet er valgfritt.
+Du skal lage ditt eget nettsted. Tema for nettstedet er valgfritt. Du kan for eksempel lage en nettavis, nyhetsside eller blogg.
 
 ### Krav
 Krav til nettstedet er at det:
