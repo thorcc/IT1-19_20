@@ -5,7 +5,7 @@ Se film 1-8 under "Lær CSS" på [Scrimba](https://scrimba.com/g/gkursiwebprogra
 Bonus: Se film 9-17 for å få tips til hva mer som kan gjøres med CSS.
 
 ## Oppgave
-Du skal lage ditt eget nettsted. Tema for nettstedet er Det periodiske system.
+Lag et nettsted som handler om Det periodiske system.
 
 ### Krav
 Krav til nettstedet er at det:
@@ -14,7 +14,7 @@ Krav til nettstedet er at det:
 - inneholder minst en side med grid.
 
 ### Levering:
-- På slutten av fagdagen klokka 14:00
+- På slutten av fagdagen klokka 12:50
 - En .zip-fil med bilder, HTML- og CSS-filer leveres på It's.
 
 ### Vurdering:
