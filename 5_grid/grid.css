@@ -1,0 +1,8 @@
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* Definerer "gridden", og sier at den skal ta opp tre i bredden, som er like store. 1fr står for 1 fraction som betyr 1 del */
+  grid-gap: 50px;
+}
+main img{
+  width: 100%;
+}

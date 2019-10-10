@@ -1,0 +1,32 @@
+body{
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  font: 20px Arial;
+}
+
+p{
+  border: solid black 3px;
+  background-color: cyan;
+  padding: 0px;
+}
+
+.posisjon1{
+  position: relative;
+}
+
+.posisjon2{
+  background-color: yellow;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+span{
+  background-color: pink;
+  border: solid black 1px;
+}
+
+img{
+  width: 100%;
+}
