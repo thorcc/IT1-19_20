@@ -1,11 +1,16 @@
+body{
+  background-image: url("../solsystemet/bilder/earth.png");
+  background-size: cover;
+}
 nav{
   display: flex;
   justify-content: space-around;
   height: 100px;
   align-items: center;
+  background-color: lightgrey;
 }
 nav a{
-  background-color: blue;
+  background-color: lightblue;
   text-decoration: none;
   color: white;
   padding: 5px;
