@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Lim inn kode fra firebase her-->
+
+
+  </head>
+  <body>
+    <h1>Legg til brukere i databasen din</h1>
+
+    <p>Lim inn kode fra firebase i HTML-fila, og trykk på knappen.</p>
+
+    <button>Legg til 500 brukere</button>
+    
+    <p id="tekst"></p>
+
+    <script type="text/javascript">
+      const knapp = document.querySelector("button");
+      const tekst = document.querySelector("#tekst");
+
+      const leggTilBrukere = async () => {
+        try{
+
+          const db = firebase.firestore();
+          const bruker = db.collection("bruker");
+
+          const response = await fetch("https://randomuser.me/api/?results=500");
+          const json = await response.json();
+          for (const user of json.results) {
+            bruker.doc(user.email).set({
+              firstName: user.name.first,
+              lastName: user.name.last,
+              title: user.name.title,
+              age: user.dob.age,
+              city: user.location.city,
+              country: user.location.country,
+              picture: user.picture.large
+            })
+          }
+          tekst.innerHTML = `500 brukere ble lagt inn i databasen din. Sjekk firebase`;
+        }
+        catch(err){
+          tekst.innerHTML = `Noe gikk galt. Har du husket å lime inn kode fra firebase i HTML-filen?`
+        }
+      }
+      
+      knapp.onclick = leggTilBrukere;
+      
+    </script>
+  </body>
+</html>
