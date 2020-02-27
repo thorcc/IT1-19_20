@@ -4,7 +4,27 @@
     <meta charset="utf-8">
     <title>500 brukere</title>
     <!-- Lim inn kode fra firebase her-->
-
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAEs5feo50-kFdCjN7e-M-AXYrWRtql5fw",
+        authDomain: "chat-og-mer-it1-torsdag.firebaseapp.com",
+        databaseURL: "https://chat-og-mer-it1-torsdag.firebaseio.com",
+        projectId: "chat-og-mer-it1-torsdag",
+        storageBucket: "chat-og-mer-it1-torsdag.appspot.com",
+        messagingSenderId: "1080712309363",
+        appId: "1:1080712309363:web:db7fcfaaddc02d9f6fd806"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
 
   </head>
   <body>
@@ -24,12 +44,12 @@
         try{
 
           const db = firebase.firestore();
-          const bruker = db.collection("bruker");
+          const randompeople = db.collection("randompeople");
 
           const response = await fetch("https://randomuser.me/api/?results=500");
           const json = await response.json();
           for (const user of json.results) {
-            bruker.doc(user.email).set({
+            randompeople.doc(user.email).set({
               firstName: user.name.first,
               lastName: user.name.last,
               title: user.name.title,
