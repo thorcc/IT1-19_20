@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Thors dyreside</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCIbnfYhbz9Hoto405zFDdtmi-0V9DQkso",
+        authDomain: "chat-og-mer.firebaseapp.com",
+        databaseURL: "https://chat-og-mer.firebaseio.com",
+        projectId: "chat-og-mer",
+        storageBucket: "chat-og-mer.appspot.com",
+        messagingSenderId: "832503699828",
+        appId: "1:832503699828:web:002492dc7b0d4a2a097421"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Thors dyreside</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Hjem</a></li>
+          <li><a href="registrer.html">Registrer dyr</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Registrer dyr</h1>
+
+      <form>
+        <label for="inpDyr">Dyr:</label>
+        <input id="inpDyr" type="text">
+
+        <label for="inpVerdensdel">Verdensdel:</label>
+        <input id="inpVerdensdel" type="text">
+
+        <label for="inpType">Type:</label>
+        <input id="inpType" type="text">
+
+        <label for="inpBilde">Bildeadresse:</label>
+        <input id="inpBilde" type="text">
+
+        <button type="submit">Registrer dyr</button>
+      </form>
+    </main>
+
+    <script type="text/javascript">
+      const inpDyr = document.querySelector("#inpDyr");
+      const inpType = document.querySelector("#inpType");
+      const inpBilde = document.querySelector("#inpBilde");
+      const inpVerdensdel = document.querySelector("#inpVerdensdel");
+
+      const form = document.querySelector("form");
+
+      // Referanser til databasen
+      const db = firebase.firestore();
+      const dyr = db.collection("dyr");
+
+      // Funksjon for å sende inn data
+      form.onsubmit = (event) => {
+        event.preventDefault();
+        dyr.add({
+          navn: inpDyr.value,
+          type: inpType.value,
+          verdensdel: inpVerdensdel.value,
+          bilde: inpBilde.value
+        });
+        form.reset();
+      }
+
+     </script>
+  </body>
+</html>

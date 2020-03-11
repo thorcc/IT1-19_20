@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyresiden</title>
+
+    <!-- Lim inn kode fra firestore her -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCIbnfYhbz9Hoto405zFDdtmi-0V9DQkso",
+            authDomain: "chat-og-mer.firebaseapp.com",
+            databaseURL: "https://chat-og-mer.firebaseio.com",
+            projectId: "chat-og-mer",
+            storageBucket: "chat-og-mer.appspot.com",
+            messagingSenderId: "832503699828",
+            appId: "1:832503699828:web:002492dc7b0d4a2a097421"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Dyresiden</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="registrer.html">Legg til dyr</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <select name="velgType" id="selType">
+            <option value="alle">Velg type dyr (alle typer)</option>
+            <option value="Pattedyr">Pattedyr</option>
+            <option value="Bløtdyr">Bløtdyr</option>
+        </select>
+        <section id="secDyr">
+
+        </section>
+    </main>
+
+    <script>
+        const secDyr = document.querySelector("#secDyr");
+        const selType = document.querySelector("#selType");
+
+        const db = firebase.firestore();
+        const dyr = db.collection("dyr");
+
+        const hentAlleDyr = async () => {
+            secDyr.innerHTML = ``;
+            const svar = await dyr.get();
+            for (const dyr of svar.docs) {
+                lagHTML(dyr.id, dyr.data());
+            }
+        }
+
+        hentAlleDyr();
+
+        const lagHTML = (id, dyr) => {
+            secDyr.innerHTML += `
+                <div>
+                    <h3>${dyr.navn}</h3>
+                    <p>Type: ${dyr.type}</p>
+                    <p>Verdensdel: ${dyr.verdensdel}</p>
+                    <img src=${dyr.bilde} alt="Bilde av ${dyr.navn}">
+                    <a href="dyr.html?id=${id}">Les mer om ${dyr.navn}</a>
+                </div>
+            `;
+        }
+
+        selType.onchange = async () => {
+
+            let svar; // Oppretter en "tom"-variabel
+            
+            if(selType.value === "alle"){ 
+                // Hvis svar er lik "alle" gjør følgende:
+                svar = await dyr.get();
+            }
+            else{
+                // Ellers gjør følgende:
+                svar = await dyr.where("type", "==", selType.value).get();
+            }
+
+            secDyr.innerHTML = ``;
+            for (const dyr of svar.docs) {
+                lagHTML(dyr.id, dyr.data());
+            }
+        }
+    </script>
+</body>
+
+</html>

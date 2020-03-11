@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Thors dyreside</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCIbnfYhbz9Hoto405zFDdtmi-0V9DQkso",
+        authDomain: "chat-og-mer.firebaseapp.com",
+        databaseURL: "https://chat-og-mer.firebaseio.com",
+        projectId: "chat-og-mer",
+        storageBucket: "chat-og-mer.appspot.com",
+        messagingSenderId: "832503699828",
+        appId: "1:832503699828:web:002492dc7b0d4a2a097421"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Thors dyreside</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Hjem</a></li>
+          <li><a href="registrer.html">Registrer dyr</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Hjem</h1>
+      <section id="secDyr">
+
+      </section>
+    </main>
+
+    <script type="text/javascript">
+      // Referanser til HTML-elementer
+      const secDyr = document.querySelector("#secDyr");
+
+      // Referanser til databasen
+      const db = firebase.firestore();
+      const dyr = db.collection("dyr");
+
+      // Funksjoner for å hente dyr fra databasen
+      const lagHTML = (id, art) => {
+        secDyr.innerHTML += `
+          <div>
+            <h3>${art.navn}</h3>
+            <img src="${art.bilde}">
+            <p>Verdensdel: ${art.verdensdel}</p>
+            <p>Type: ${art.type}</p>
+            <a href="dyr.html?id=${id}">Les mer om ${art.navn}</a>
+          </div>
+        `;
+      }
+
+      const visAlleDyr = async () => {
+        const svar = await dyr.get();
+        //console.log(svar.docs[0].id);
+        for(const art of svar.docs){
+          console.log(art.data());
+          lagHTML(art.id, art.data());
+        }
+      }
+
+      visAlleDyr();
+
+    </script>
+  </body>
+</html>
