@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Filmsiden</title>
+    <link rel="stylesheet" href="../style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAw1itAwTwPOfl9PYlIC2iy-pMsQm_yzgQ",
+        authDomain: "filmsiden-28534.firebaseapp.com",
+        databaseURL: "https://filmsiden-28534.firebaseio.com",
+        projectId: "filmsiden-28534",
+        storageBucket: "filmsiden-28534.appspot.com",
+        messagingSenderId: "973836135013",
+        appId: "1:973836135013:web:8872b245a25f39d5d3b48c"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Thors filmside</h1>
+      <nav>
+        <ul>
+          <li> <a href="../index.html">Hjem</a> </li>
+          <li> <a href="../filmer/filmer.html">Filmer</a> </li>
+          <li> <a href="../skuespillere/skuespillere.html">Skuespillere</a> </li>
+          <li> <a href="regissorer.html">Regissører</a> </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Regissører</h1>
+    </main>
+    <footer>
+
+    </footer>
+
+
+    <script type="text/javascript">
+      // Referanser til databasen
+      const db = firebase.firestore();
+      const filmDB = db.collection("film");
+      const regissorDB = db.collection("regissør");
+      const skuespillerDB = db.collection("skuespiller");
+      const rolleDB = db.collection("rolle");
+
+    </script>
+  </body>
+</html>
