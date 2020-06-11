@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            }
+    </style>
+</head>
+<body>
+    <img src="dvd.svg" alt="">
+
+    <script>
+        const dvd = document.querySelector("img");
+
+        let x = 0;
+        let y = 0;
+
+        let xFart = 10;
+        let yFart = 10;
+
+        const flyttDVD = () => {
+            x += xFart;
+            y += yFart;
+            if(x > window.innerWidth - dvd.clientWidth || x < 0){
+                xFart = xFart * -1;
+            }
+            if(y > window.innerHeight - dvd.clientHeight || y < 0){
+                yFart = yFart * -1;
+            }
+
+            dvd.style.left = x + "px";
+            dvd.style.top = y + "px";
+
+
+            requestAnimationFrame(flyttDVD);
+        }
+
+        flyttDVD();
+
+    </script>
+</body>
+</html>
